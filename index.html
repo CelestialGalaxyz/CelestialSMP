@@ -1,64 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chatbot</title>
-    <style>
-        body {
-            background-color: #1e1e1e;
-            color: #d1d1d1;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            padding: 20px;
-            background: #2a2a2a;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-        p {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            margin-bottom: 20px;
-        }
-        .button {
-            background: #444;
-            color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease-in-out;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .button:hover {
-            background: #666;
-            transform: scale(1.05);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Elite Minecraft Hosting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #111;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #0f0f0f, #2c2c2c);
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.7);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: white;
+      text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+      color: #aaa;
+    }
+
+    .typewriter {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #39b54a;
+      animation: typing 3s steps(30) 1s 1 normal both, blink 0.75s step-end infinite;
+    }
+
+    /* Tier Section */
+    .tier-container {
+      display: flex;
+      justify-content: center;
+      padding: 30px 20px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .tier-card {
+      background: #202020;
+      border-radius: 10px;
+      padding: 20px;
+      width: 220px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 300px;
+    }
+
+    .tier-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .tier-card h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .tier-card p.price {
+      font-size: 1.1rem;
+      color: #39b54a;
+      font-weight: 600;
+    }
+
+    .tier-card p.description {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 10px;
+    }
+
+    .features-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 15px;
+      color: #ddd;
+      flex-grow: 1;
+    }
+
+    .tier-card p.discord-requirement {
+      font-size: 0.8rem;
+      color: #bbb;
+      margin-top: 10px;
+    }
+
+    .get-started {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      background-color: #39b54a;
+      text-align: center;
+      border-radius: 7px;
+      color: white;
+      text-decoration: none;
+      margin-top: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .get-started:hover {
+      background-color: #2a8b34;
+      transform: translateY(-5px);
+    }
+
+    /* About Us Section */
+    .about-us {
+      background: #222;
+      padding: 30px 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      width: 100%;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .about-us h2 {
+      font-size: 1.8rem;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .about-us p {
+      color: #ccc;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 20px 20px;
+      background-color: #1a1a1a;
+      color: #aaa;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    /* Rare Satfeed Link */
+    .rare-satfeed {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .rare-satfeed a {
+      font-size: 1.2rem;
+      color: #39b54a;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+
+    .rare-satfeed a:hover {
+      color: #2a8b34;
+      transform: translateY(-3px);
+    }
+
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Welcome to AI Chat</h1>
-        <p>Your intelligent assistant, ready to answer your questions.</p>
-        <a href="https://chat.openai.com" class="button">Get Started</a>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Elite Minecraft Hosting</h1>
+    <p>"Where performance meets community!"</p>
+    <div class="typewriter">"Join us and dominate the game!"</div>
+  </div>
+
+  <!-- Tiers Section -->
+  <div class="tier-container">
+    <div class="tier-card">
+      <h2>Free</h2>
+      <p class="price">$0</p>
+      <p class="description">Invite 10 members to our Discord server to unlock</p>
+      <ul class="features-list">
+        <li>1 server</li>
+        <li>512MB RAM</li>
+        <li>Community Support</li>
+      </ul>
+      <p class="discord-requirement">Discord Requirement: Invite 10 members</p>
+      <a href="https://discord.gg/YOUR_DISCORD_LINK" class="get-started">Get Started</a>
     </div>
+
+    <div class="tier-card">
+      <h2>Basic</h2>
+      <p class="price">5invites/month</p>
+      <p class="description">Invite 20 members to our Discord server to unlock</p>
+      <ul class="features-list">
+        <li>2 servers</li>
+        <li>1GB RAM each</li>
+        <li>Priority Support</li>
+      </ul>
+      <p class="discord-requirement">Discord Requirement: Invite 20 members</p>
+      <a href="https://discord.gg/YOUR_DISCORD_LINK" class="get-started">Get Started</a>
+    </div>
+
+    <div class="tier-card">
+      <h2>Premium</h2>
+      <p class="price">5invites/month</p>
+      <p class="description">1 Discord server boost required to unlock</p>
+      <ul class="features-list">
+        <li>3 servers</li>
+        <li>2GB RAM each</li>
+        <li>Premium Support</li>
+      </ul>
+      <p class="discord-requirement">Discord Requirement: 1 server boost</p>
+      <a href="https://discord.gg/YOUR_DISCORD_LINK" class="get-started">Get Started</a>
+    </div>
+  </div>
+
+  <!-- Rare Satfeed Section -->
+  <div class="rare-satfeed">
+    <a href="https://example.com" target="_blank">rare satfeed</a>
+  </div>
+
+  <!-- About Us Section -->
+  <div class="about-us">
+    <h2>About Us</h2>
+    <p>We are dedicated to providing high-performance hosting for Minecraft with a strong community support system. Join us and enjoy a seamless gaming experience.</p>
+    <ul class="features-list">
+      <li>High-Performance Servers</li>
+      <li>Easy to access Servers!!</li>
+      <li>Hiring Part Time Customer Support Person for FREE SERVERS</li>
+    </ul>
+    <a href="https://discord.gg/YOUR_DISCORD_LINK" class="get-started">Join Our Discord</a>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Made with ❤️ by Sathvik Dev | Elite Minecraft Hosting 2025</p>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Typewriter effect for "Join us and dominate the game!" text
+    const typewriterText = document.querySelector('.typewriter');
+    let text = typewriterText.innerText;
+    typewriterText.innerText = '';
+    let index = 0;
+    const typeWriterEffect = setInterval(() => {
+      if (index < text.length) {
+        typewriterText.innerText += text[index++];
+      } else {
+        clearInterval(typeWriterEffect);
+      }
+    }, 100);
+  </script>
 </body>
+
 </html>
